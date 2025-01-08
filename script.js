@@ -51,22 +51,24 @@ async function processPDF() {
     addLog(`PDF loaded. Total pages: ${pdfDoc.getPageCount()}`);
     updateProgress(30);
 
-    // Replace the first page with the cover image
+    // Remove the first page
+    pdfDoc.removePage(0);
+    addLog("Removed the first page.");
+    
+    // Add the cover image as the new first page
     if (coverImage) {
       const coverImageBytes = await coverImage.arrayBuffer();
       const coverImageBitmap = await pdfDoc.embedJpg(coverImageBytes); // Assume JPG format
 
       // Create a new page for the cover image
-      const coverPage = pdfDoc.insertPage(0, [
-        pdfDoc.getPages()[0].getSize().width,
-        pdfDoc.getPages()[0].getSize().height,
-      ]);
+      const coverPage = pdfDoc.addPage([pdfDoc.getPages()[0].getSize().width, pdfDoc.getPages()[0].getSize().height]);
       coverPage.drawImage(coverImageBitmap, {
         x: 0,
         y: 0,
         width: coverPage.getWidth(),
         height: coverPage.getHeight(),
       });
+      addLog("Added cover image as the new first page.");
     }
 
     updateProgress(90);
