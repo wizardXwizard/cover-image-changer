@@ -61,7 +61,7 @@ async function processPDF() {
       const coverImageBitmap = await pdfDoc.embedJpg(coverImageBytes); // Assume JPG format
 
       // Create a new page for the cover image
-      const coverPage = pdfDoc.addPage([pdfDoc.getPages()[0].getSize().width, pdfDoc.getPages()[0].getSize().height]);
+      const coverPage = pdfDoc.insertPage(0, [pdfDoc.getPages()[0].getSize().width, pdfDoc.getPages()[0].getSize().height]);
       coverPage.drawImage(coverImageBitmap, {
         x: 0,
         y: 0,
@@ -94,4 +94,4 @@ async function processPDF() {
 }
 
 // Assuming you have a button with id "processButton" to trigger PDF processing:
-// document.getElementById("processButton").addEventListener("click", processPDF);
+document.getElementById("processButton").addEventListener("click", processPDF);
