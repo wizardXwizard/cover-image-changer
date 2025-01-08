@@ -1,0 +1,82 @@
+:root {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --accent: #6366f1;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-section {
+  border: 2px dashed var(--accent);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: opacity 0.2s;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.progress-container {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  padding: 2px;
+  margin: 20px 0;
+}
+
+.progress-bar {
+  background: var(--accent);
+  height: 20px;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.logs {
+  background: var(--bg-primary);
+  padding: 15px;
+  border-radius: 8px;
+  height: 150px;
+  overflow-y: auto;
+  margin-top: 20px;
+  font-family: monospace;
+}
+
+.log-entry {
+  margin: 5px 0;
+  padding: 5px;
+  border-left: 3px solid var(--accent);
+}

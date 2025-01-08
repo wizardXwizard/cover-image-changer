@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PDF Processor</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://unpkg.com/pdf-lib@1.4.0/dist/pdf-lib.min.js"></script>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>PDF Processor</h1>
+
+      <div class="upload-section">
+        <input type="file" id="pdfInput" accept=".pdf" style="display: none" />
+        <input
+          type="file"
+          id="coverInput"
+          accept="image/*"
+          style="display: none"
+        />
+        <button
+          class="button"
+          onclick="document.getElementById('pdfInput').click()"
+        >
+          Select PDF
+        </button>
+        <button
+          class="button"
+          onclick="document.getElementById('coverInput').click()"
+        >
+          Select Cover Image
+        </button>
+        <div id="fileNames" style="margin-top: 10px"></div>
+      </div>
+
+      <div class="progress-container">
+        <div id="progressBar" class="progress-bar" style="width: 0%"></div>
+      </div>
+
+      <button id="processButton" class="button" disabled onclick="processPDF()">
+        Process PDF
+      </button>
+
+      <div class="logs" id="logs"></div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
